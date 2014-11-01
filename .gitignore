@@ -1,2 +1,11 @@
-!undodir/empty
+*~
+*.sw[op]
+
+.netrwhist
+autoload/conf/redmine.vim
+
+bundle/
+view/
+
+!undodir/.keep
 undodir/*
