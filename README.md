@@ -15,7 +15,7 @@ cd ~/.vim
 mkdir -p ~/.vim/bundle
 ```
 
-After that open `nvim` and execute `:PlugInstall`.
+After that open `nvim` and execute `:PlugInstall` and `:UpdateRemotePlugins`.
 
 ### Grip
 

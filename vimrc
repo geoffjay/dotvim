@@ -6,6 +6,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'aklt/plantuml-syntax'
 Plug 'alvan/vim-closetag'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+Plug 'c0r73x/neotags.nvim'
 Plug 'cespare/vim-toml'
 Plug 'chikamichi/mediawiki.vim'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -21,6 +22,7 @@ Plug 'ervandew/supertab'
 Plug 'fatih/vim-go'
 Plug 'fholgado/minibufexpl.vim'
 Plug 'flazz/vim-colorschemes'
+Plug 'geoffjay/vim-apex-snippets'
 Plug 'geoffjay/vim-dcs-snippets'
 Plug 'honza/vim-snippets'
 Plug 'IN3D/vim-raml'
@@ -52,6 +54,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'sbl/scvim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'sebdah/vim-delve'
+Plug 'Shougo/denite.nvim'
 Plug 'Shougo/deol.nvim'
 Plug 'SirVer/ultisnips'
 Plug 'sjl/gundo.vim'
@@ -66,6 +70,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-latex/vim-latex'
 Plug 'vim-scripts/dbext.vim'
+Plug 'vim-scripts/glib.vim'
 Plug 'vim-scripts/gtk-vim-syntax'
 Plug 'vim-scripts/taglist.vim'
 Plug 'vim-scripts/vim-mediawiki-editor'
@@ -82,19 +87,20 @@ else
 endif
 let g:deoplete#enable_at_startup = 1
 
+" These aparently need to follow deoplete enable
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+
 call plug#end()
 
 """Plug 'Valloric/YouCompleteMe'"""
-
-" Load plugins
-"call pathogen#infect()
-"call pathogen#helptags()
 
 " Editor configuration
 call conf#editor#defaults()
 call conf#editor#colorscheme()
 call conf#editor#columnwidth()
 call conf#editor#indentation()
+call conf#editor#easyalign()
 
 " Strip trailing whitespace on save
 au BufWritePre * :%s/\s\+$//e
@@ -107,6 +113,7 @@ call conf#taglist#init()
 call conf#tagbar#init()
 call conf#ctrlp#init()
 call conf#closetag#init()
+call conf#neotags#init()
 call conf#nerdtree#init()
 call conf#jedi#init()
 call conf#redmine#init()

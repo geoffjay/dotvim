@@ -92,3 +92,11 @@ function conf#editor#columnwidth()
     au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>121v.\+', -1)
   endif
 endfunction
+
+function conf#editor#easyalign()
+  " Start interactive EasyAlign in visual mode (e.g. vipga)
+  xmap ga <Plug>(EasyAlign)
+
+  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+  nmap ga <Plug>(EasyAlign)
+endfunction
