@@ -29,11 +29,14 @@ Plug 'IN3D/vim-raml'
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'jparise/vim-graphql'
 Plug 'jpo/vim-railscasts-theme'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'jwhitley/vim-colors-solarized'
 Plug 'kana/vim-metarw'
 Plug 'kingbin/vim-arduino'
+Plug 'lifepillar/vim-gruvbox8'
 Plug 'majutsushi/tagbar'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'mattn/vim-metarw-etcd'
@@ -55,6 +58,7 @@ Plug 'sbl/scvim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'sebdah/vim-delve'
+Plug 'severin-lemaignan/vim-minimap'
 Plug 'Shougo/denite.nvim'
 Plug 'Shougo/deol.nvim'
 Plug 'SirVer/ultisnips'
@@ -91,13 +95,32 @@ let g:deoplete#enable_at_startup = 1
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 
+" repo says it needs to be loaded last
+Plug 'ryanoasis/vim-devicons'
+
 call plug#end()
 
 """Plug 'Valloric/YouCompleteMe'"""
 
+set guifont=Inconsolata\ for\ Powerline:h15
+let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set termencoding=utf-8
+let g:webdevicons_enable = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
+let g:webdevicons_enable_ctrlp = 1
+let g:webdevicons_enable_flagship_statusline = 1
+let g:webdevicons_conceal_nerdtree_brackets = 1
+
 " Editor configuration
-call conf#editor#defaults()
 call conf#editor#colorscheme()
+call conf#powerline#init()
+
+call conf#editor#defaults()
 call conf#editor#columnwidth()
 call conf#editor#indentation()
 call conf#editor#easyalign()
@@ -122,7 +145,6 @@ call conf#lsp#init()
 call conf#supercollider#init()
 call conf#previm#init()
 call conf#taskwarrior#init()
-call conf#powerline#init()
 
 " Filetype configuration
 call conf#filetypes#latex()
@@ -137,8 +159,18 @@ call conf#filetypes#javascript()
 call conf#filetypes#supp()
 "call conf#filetypes#python()
 
+" minimap bindings
+let g:minimap_show='<leader>ms'
+let g:minimap_update='<leader>mu'
+let g:minimap_close='<leader>mc'
+let g:minimap_toggle='<leader>mt'
+
 " gitcommit specific
 "autocmd Filetype gitcommit spell textwidth=72
+
+" split preferences
+"set splitright
+"set splitbelow
 
 """
 " key mappings, older versions of vim might need

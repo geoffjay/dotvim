@@ -69,7 +69,10 @@ function conf#editor#colorscheme()
   set t_Co=256
   "set term=xterm-256color
   set background=dark
-  colorscheme gruvbox
+  colorscheme gruvbox8
+  let g:gruvbox_italic = 1
+  let g:gruvbox_italicize_strings = 1
+  "let g:gruvbox_transp_bg = 1
 endfunction
 
 function conf#editor#indentation()
