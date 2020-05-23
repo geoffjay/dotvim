@@ -69,9 +69,16 @@ function conf#editor#colorscheme()
   set t_Co=256
   "set term=xterm-256color
   set background=dark
-  colorscheme gruvbox8
-  let g:gruvbox_italic = 1
-  let g:gruvbox_italicize_strings = 1
+  colorscheme nord
+  let g:nord_cursor_line_number_background = 1
+  let g:nord_uniform_diff_background = 1
+  let g:nord_bold = 0
+  let g:nord_italic = 1
+  let g:nord_italic_comments = 1
+  let g:nord_underline = 1
+  "colorscheme gruvbox8
+  "let g:gruvbox_italic = 1
+  "let g:gruvbox_italicize_strings = 1
   "let g:gruvbox_transp_bg = 1
 endfunction
 

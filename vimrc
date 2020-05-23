@@ -5,6 +5,8 @@ call plug#begin('~/.vim/bundle')
 
 Plug 'aklt/plantuml-syntax'
 Plug 'alvan/vim-closetag'
+Plug 'andymass/vim-matchup'
+Plug 'arcticicestudio/nord-vim'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 Plug 'c0r73x/neotags.nvim'
 Plug 'cespare/vim-toml'
@@ -24,6 +26,10 @@ Plug 'fholgado/minibufexpl.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'geoffjay/vim-apex-snippets'
 Plug 'geoffjay/vim-dcs-snippets'
+Plug 'hashivim/vim-consul'
+Plug 'hashivim/vim-nomadproject'
+Plug 'hashivim/vim-terraform'
+Plug 'hashivim/vim-vaultproject'
 Plug 'honza/vim-snippets'
 Plug 'IN3D/vim-raml'
 Plug 'JamshedVesuna/vim-markdown-preview'
@@ -81,6 +87,7 @@ Plug 'vim-scripts/vim-mediawiki-editor'
 Plug 'vim-syntastic/syntastic'
 Plug 'wakatime/vim-wakatime'
 Plug 'wavded/vim-stylus'
+Plug 'wsdjeg/vim-todo'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
