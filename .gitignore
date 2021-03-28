@@ -1,0 +1,19 @@
+*~
+*.sw[op]
+
+.netrwhist
+autoload/plug.vim.old
+autoload/conf/redmine.vim
+
+bundle/
+view/
+
+tags
+
+!undodir/.keep
+undodir/*
+
+plugin/
+startup.log
+lua/rc/*
+# rc is ignored since private configs don't update on force/rebase pull
