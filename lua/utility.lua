@@ -1,8 +1,10 @@
 local map = function(key)
   -- get the extra options
-  local opts = {noremap = true}
+  local opts = { noremap = true }
   for i, v in pairs(key) do
-    if type(i) == 'string' then opts[i] = v end
+    if type(i) == "string" then
+      opts[i] = v
+    end
   end
 
   -- basic support for buffer-scoped keybindings
