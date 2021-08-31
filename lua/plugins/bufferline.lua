@@ -45,7 +45,6 @@ require("bufferline").setup({
   },
 })
 
-map("n", ";", "<Cmd>Buffers<CR>", { noremap = true })
 map("n", "gb", "<Cmd>BufferLinePick<CR>", { noremap = true })
 map("n", "<Leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", { noremap = true })
 map("n", "<Leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>", { noremap = true })

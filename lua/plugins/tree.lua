@@ -1,13 +1,42 @@
 local g = vim.g
 
 g.nvim_tree_ignore = { ".git", "node_modules", ".cache", ".DS_Store" }
-g.nvim_tree_width = 30
+g.nvim_tree_width = 40
 g.nvim_tree_auto_resize = 0
 g.nvim_tree_indent_markers = 1
 g.nvim_tree_show_icons = {
   folders = 1,
   files = 1,
   git = 0,
+}
+g.nvim_tree_icons = {
+  default = '',
+  symlink = '',
+  git = {
+    unstaged = "✗",
+    staged = "✓",
+    unmerged = "",
+    renamed = "➜",
+    untracked = "★",
+    deleted = "",
+    ignored = "◌",
+  },
+  folder = {
+    arrow_open = "",
+    arrow_closed = "",
+    default = "",
+    open = "",
+    empty = "",
+    empty_open = "",
+    symlink = "",
+    symlink_open = "",
+  },
+  lsp = {
+    hint = "",
+    info = "",
+    warning = "",
+    error = "",
+  },
 }
 
 -- Remove all default bindings.
