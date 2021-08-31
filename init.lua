@@ -21,15 +21,33 @@ require 'paq' {
   'arcticicestudio/nord-vim';
   'kyazdani42/nvim-web-devicons';
   'hoob3rt/lualine.nvim';
+  'akinsho/bufferline.nvim';
 
   -- utility
-  'kyazdani42/nvim-tree.lua';
+  'airblade/vim-gitgutter';
+  'editorconfig/editorconfig-vim';
   'junegunn/fzf';
   'junegunn/fzf.vim';
+  'kyazdani42/nvim-tree.lua';
+  'ruanyl/vim-gh-line';
+  'tpope/vim-commentary';
+  'christoomey/vim-tmux-navigator';
+  'vim-test/vim-test';
+  'benmills/vimux';
+  'mg979/vim-visual-multi';
 
-  -- language specific
+  -- languages
   'vim-ruby/vim-ruby';
+  'tpope/vim-bundler';
+  'tpope/vim-rails';
+  'tpope/vim-rake';
+  'tpope/vim-rbenv';
   'mattn/vim-goimports';
+
+  -- code completion
+  'hrsh7th/nvim-compe';
+  'neovim/nvim-lspconfig';
+  'onsails/lspkind-nvim';
 }
 
 -- autoload configurations
@@ -41,8 +59,11 @@ vim.call('init#editor#indentation')
 vim.call('conf#editor#terminal')
 
 -- lua configurations
+require('plugins/completion')
+require('plugins/lsp')
 require('plugins/tree')
 require('plugins/statusline')
+require('plugins/bufferline')
 
 -- shortcuts
 vim.call('init#shortcuts#setup')

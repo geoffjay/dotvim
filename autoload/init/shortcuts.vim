@@ -1,5 +1,6 @@
 function! init#shortcuts#setup()
   :nmap \a Geoff Johnson, <geoff.jay@gmail.com><CR>
+  :nmap \b :Bundle
   :nmap \d <C-R>=strftime('%Y-%m-%d')<CR>
   :nmap \e :call TreeToggle()<CR>
   :nmap \r :call TreeRefresh()<CR>
@@ -11,5 +12,4 @@ function! init#shortcuts#setup()
   :nmap \M :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<CR>
   :nmap \m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
   :nmap \w :setlocal wrap!<CR>:setlocal wrap?<CR>
-  " :nmap ; :CtrlPBuffer<CR>
 endfunction
