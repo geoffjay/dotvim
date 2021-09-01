@@ -39,6 +39,7 @@ require("paq")({
   "vim-test/vim-test",
   "benmills/vimux",
   "mg979/vim-visual-multi",
+  "glepnir/dashboard-nvim",
 
   -- languages
   "vim-ruby/vim-ruby",
@@ -47,6 +48,9 @@ require("paq")({
   "tpope/vim-rake",
   "tpope/vim-rbenv",
   "mattn/vim-goimports",
+
+  -- syntax
+  "cespare/vim-toml",
 
   -- code completion
   "hrsh7th/nvim-compe",
@@ -69,8 +73,10 @@ require("plugins/tree")
 require("plugins/statusline")
 require("plugins/bufferline")
 
+-- XXX
+
 -- TODO: move into a new shortcuts.lua file
-map("n", ";", "<Cmd>Files<CR>", { noremap = true })
+map("n", ";", "<Cmd>Buffers<CR>", { noremap = true })
 map("n", "<C-o>", "<Cmd>Buffers<CR>", { noremap = true })
 map("n", "<C-p>", "<Cmd>Files<CR>", { noremap = true })
 map("n", "<C-h>", "<Cmd>History<CR>", { noremap = true })
@@ -78,20 +84,22 @@ map("n", "<C-h>", "<Cmd>History<CR>", { noremap = true })
 -- TODO: move into new tmux/test.lua files
 vim.g.tmux_navigator_no_mappings = 1
 vim.g.tmux_navigator_save_on_switch = 2
-map('n', '<C-Left>',  ':TmuxNavigateLeft<CR>',  {silent = true})
-map('n', '<C-Down>',  ':TmuxNavigateDown<CR>',  {silent = true})
-map('n', '<C-Up>',    ':TmuxNavigateUp<CR>',    {silent = true})
-map('n', '<C-Right>', ':TmuxNavigateRight<CR>', {silent = true})
+map("n", "<C-Left>", ":TmuxNavigateLeft<CR>", { silent = true })
+map("n", "<C-Down>", ":TmuxNavigateDown<CR>", { silent = true })
+map("n", "<C-Up>", ":TmuxNavigateUp<CR>", { silent = true })
+map("n", "<C-Right>", ":TmuxNavigateRight<CR>", { silent = true })
 
 -- disable visual-multi-mappings that bind to ctrl up/down which are being used with tmux
 vim.g.VM_default_mappings = 0
 
 -- vim-test / vimux
-vim.g['test#strategy'] = 'vimux' -- make test commands execute using vimux
-vim.g['VimuxUseNearest'] = 0 -- don't use an exisiting pane
-vim.g['VimuxHeight'] = '20'
-map('n', '<C-t>', ':w<CR> :TestFile<CR>', { noremap = true })
-map('n', '<C-l>', ':w<CR> :TestNearest<CR>', { noremap = true })
+vim.g["test#strategy"] = "vimux" -- make test commands execute using vimux
+vim.g["VimuxUseNearest"] = 0 -- don't use an exisiting pane
+vim.g["VimuxHeight"] = "20"
+map("n", "<C-t>", ":w<CR> :TestFile<CR>", { noremap = true })
+map("n", "<C-l>", ":w<CR> :TestNearest<CR>", { noremap = true })
+
+-- XXX
 
 -- shortcuts
 vim.call("init#shortcuts#setup")

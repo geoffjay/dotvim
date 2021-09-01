@@ -10,7 +10,7 @@ function on_attach(client)
   buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
 end
 
--- npm install -g typescript-language-server
+-- yarn global add typescript-language-server
 lspconf["tsserver"].setup({ on_attach = on_attach })
 
 -- GO111MODULE=on go get golang.org/x/tools/gopls@latest
@@ -20,8 +20,25 @@ lspconf["gopls"].setup({ on_attach = on_attach })
 -- chmod +x ~/.local/bin/rust-analyzer
 lspconf["rust_analyzer"].setup({ on_attach = on_attach })
 
--- npm install -g bash-language-server
+-- yarn global add bash-language-server
 lspconf["bashls"].setup({ on_attach = on_attach })
+
+-- gem install solargraph && solargraph bundle
+lspconf["solargraph"].setup({})
+
+-- yarn global add pyright
+lspconf["pyright"].setup({})
+
+-- yarn global add yaml-language-server
+lspconf["yamlls"].setup({})
+
+-- yarn global add graphql-language-service-cli graphql
+lspconf["graphql"].setup({
+  filetypes = { "graphql", "gql" },
+})
+
+-- yarn global add vls
+lspconf["vuels"].setup({})
 
 require("lspkind").init({
   symbol_map = {

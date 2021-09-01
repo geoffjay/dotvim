@@ -1,3 +1,5 @@
+local map = vim.api.nvim_set_keymap
+
 vim.o.completeopt = "menuone,noselect"
 
 require("compe").setup({
@@ -27,6 +29,10 @@ require("compe").setup({
     treesitter = false,
   },
 })
+
+map("i", "<Tab>", "v:lua.tab_complete()", { silent = true, expr = true })
+map("s", "<Tab>", "v:lua.tab_complete()", { silent = true, expr = true })
+map("i", "<CR>", 'compe#confirm("<CR>")', { silent = true, expr = true })
 
 local check_back_space = function()
   local col = vim.fn.col(".") - 1
