@@ -29,6 +29,7 @@ require("paq")({
 
   -- utility
   "airblade/vim-gitgutter",
+  "APZelos/blamer.nvim",
   "editorconfig/editorconfig-vim",
   "junegunn/fzf",
   "junegunn/fzf.vim",
@@ -47,6 +48,7 @@ require("paq")({
   "tpope/vim-rails",
   "tpope/vim-rake",
   "tpope/vim-rbenv",
+  "fatih/vim-go",
   "mattn/vim-goimports",
 
   -- syntax
@@ -67,7 +69,9 @@ vim.call("init#editor#indentation")
 vim.call("conf#editor#terminal")
 
 -- lua configurations
+require("plugins/blamer")
 require("plugins/completion")
+require("plugins/fzf")
 require("plugins/lsp")
 require("plugins/tree")
 require("plugins/statusline")
@@ -80,14 +84,15 @@ map("n", ";", "<Cmd>Buffers<CR>", { noremap = true })
 map("n", "<C-o>", "<Cmd>Buffers<CR>", { noremap = true })
 map("n", "<C-p>", "<Cmd>Files<CR>", { noremap = true })
 map("n", "<C-h>", "<Cmd>History<CR>", { noremap = true })
+map("n", "<C-f>", "<Cmd>RG <C-R><C-W><CR>", { noremap = true, silent = true })
 
 -- TODO: move into new tmux/test.lua files
 vim.g.tmux_navigator_no_mappings = 1
 vim.g.tmux_navigator_save_on_switch = 2
-map("n", "<C-Left>", ":TmuxNavigateLeft<CR>", { silent = true })
-map("n", "<C-Down>", ":TmuxNavigateDown<CR>", { silent = true })
-map("n", "<C-Up>", ":TmuxNavigateUp<CR>", { silent = true })
-map("n", "<C-Right>", ":TmuxNavigateRight<CR>", { silent = true })
+map("n", "<C-Left>", ":TmuxNavigateLeft<CR>", { noremap = true, silent = true })
+map("n", "<C-Down>", ":TmuxNavigateDown<CR>", { noremap = true, silent = true })
+map("n", "<C-Up>", ":TmuxNavigateUp<CR>", { noremap = true, silent = true })
+map("n", "<C-Right>", ":TmuxNavigateRight<CR>", { noremap = true, silent = true })
 
 -- disable visual-multi-mappings that bind to ctrl up/down which are being used with tmux
 vim.g.VM_default_mappings = 0
@@ -98,6 +103,10 @@ vim.g["VimuxUseNearest"] = 0 -- don't use an exisiting pane
 vim.g["VimuxHeight"] = "20"
 map("n", "<C-t>", ":w<CR> :TestFile<CR>", { noremap = true })
 map("n", "<C-l>", ":w<CR> :TestNearest<CR>", { noremap = true })
+
+-- commentary
+map("n", "\\cc", ":Commentary<CR>", { noremap = true })
+map("n", "\\cs", ":Commentary<CR>", { noremap = true })
 
 -- XXX
 
