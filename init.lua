@@ -1,6 +1,6 @@
 local map = vim.api.nvim_set_keymap
-
-require("utility")
+-- TODO: test and use this?
+-- local map = require("utility").map
 
 -- install plugin manager
 local function paq_install()
@@ -26,6 +26,7 @@ require("paq")({
   "kyazdani42/nvim-web-devicons",
   "hoob3rt/lualine.nvim",
   "akinsho/bufferline.nvim",
+  "norcalli/nvim-colorizer.lua",
 
   -- utility
   "airblade/vim-gitgutter",
@@ -41,6 +42,10 @@ require("paq")({
   "benmills/vimux",
   "mg979/vim-visual-multi",
   "glepnir/dashboard-nvim",
+  "nvim-lua/plenary.nvim",
+  "nvim-telescope/telescope.nvim",
+  { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+  "nvim-telescope/telescope-media-files.nvim",
 
   -- languages
   "vim-ruby/vim-ruby",
@@ -69,22 +74,30 @@ vim.call("init#editor#indentation")
 vim.call("conf#editor#terminal")
 
 -- lua configurations
-require("plugins/blamer")
-require("plugins/completion")
-require("plugins/fzf")
-require("plugins/lsp")
-require("plugins/tree")
-require("plugins/statusline")
-require("plugins/bufferline")
+require("plugins.blamer").config()
+require("plugins.bufferline").config()
+require("plugins.completion")
+require("plugins.dashboard")
+require("plugins.fzf")
+require("plugins.lsp")
+require("plugins.misc")
+require("plugins.statusline")
+require("plugins.telescope").config()
+require("plugins.tree")
 
 -- XXX
 
 -- TODO: move into a new shortcuts.lua file
-map("n", ";", "<Cmd>Buffers<CR>", { noremap = true })
-map("n", "<C-o>", "<Cmd>Buffers<CR>", { noremap = true })
-map("n", "<C-p>", "<Cmd>Files<CR>", { noremap = true })
+map("n", ";", "<Cmd>Telescope buffers<CR>", { noremap = true })
+map("n", "<C-o>", "<Cmd>Telescope git_files<CR>", { noremap = true })
+map("n", "<C-p>", "<Cmd>Telescope live_grep<CR>", { noremap = true })
 map("n", "<C-h>", "<Cmd>History<CR>", { noremap = true })
-map("n", "<C-f>", "<Cmd>RG <C-R><C-W><CR>", { noremap = true, silent = true })
+map(
+  "n",
+  "<C-f>",
+  "<Cmd>Telescope file_browser<CR>",
+  { noremap = true, silent = true }
+)
 
 -- TODO: move into new tmux/test.lua files
 vim.g.tmux_navigator_no_mappings = 1
@@ -92,7 +105,12 @@ vim.g.tmux_navigator_save_on_switch = 2
 map("n", "<C-Left>", ":TmuxNavigateLeft<CR>", { noremap = true, silent = true })
 map("n", "<C-Down>", ":TmuxNavigateDown<CR>", { noremap = true, silent = true })
 map("n", "<C-Up>", ":TmuxNavigateUp<CR>", { noremap = true, silent = true })
-map("n", "<C-Right>", ":TmuxNavigateRight<CR>", { noremap = true, silent = true })
+map(
+  "n",
+  "<C-Right>",
+  ":TmuxNavigateRight<CR>",
+  { noremap = true, silent = true }
+)
 
 -- disable visual-multi-mappings that bind to ctrl up/down which are being used with tmux
 vim.g.VM_default_mappings = 0
