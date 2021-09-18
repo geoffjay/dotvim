@@ -40,6 +40,52 @@ lspconf["graphql"].setup({
 -- yarn global add vls
 lspconf["vuels"].setup({})
 
+-- see here: https://www.chrisatmachine.com/Neovim/28-neovim-lua-development/
+-- mkdir -p ~/.local/share && cd ~/.local/share
+-- git clone --depth=1 https://github.com/sumneko/lua-language-server
+-- cd lua-language-server && git submodule update --init --recursive
+-- cd 3rd/luamake && ninja -f compile/ninja/<macos or linux>.ninja
+-- cd ../.. && ./3rd/luamake/luamake rebuild
+USER = vim.fn.expand("$USER")
+
+local sumneko_root_path = ""
+local sumneko_binary = ""
+
+if vim.fn.has("mac") == 1 then
+  sumneko_root_path = "/Users/" .. USER .. "/.local/share/lua-language-server"
+  sumneko_binary = "/Users/"
+    .. USER
+    .. "/.local/share/lua-language-server/bin/macOS/lua-language-server"
+elseif vim.fn.has("unix") == 1 then
+  sumneko_root_path = "/home/" .. USER .. "/.local/share/lua-language-server"
+  sumneko_binary = "/home/"
+    .. USER
+    .. "/.local/share/lua-language-server/bin/Linux/lua-language-server"
+else
+  print("Unsupported system for sumneko")
+end
+
+lspconf["sumneko_lua"].setup({
+  cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
+  settings = {
+    Lua = {
+      runtime = {
+        version = "LuaJIT",
+        path = vim.split(package.path, ";"),
+      },
+      diagnostics = {
+        globals = { "vim" },
+      },
+      workspace = {
+        library = {
+          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+          [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+        },
+      },
+    },
+  },
+})
+
 require("lspkind").init({
   symbol_map = {
     Enum = "",
