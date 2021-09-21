@@ -55,6 +55,8 @@ require("paq")({
   "tpope/vim-rbenv",
   "fatih/vim-go",
   "mattn/vim-goimports",
+  "dart-lang/dart-vim-plugin",
+  "akinsho/flutter-tools.nvim",
 
   -- syntax
   "cespare/vim-toml",
@@ -78,6 +80,7 @@ require("plugins.blamer").config()
 require("plugins.bufferline").config()
 require("plugins.completion")
 require("plugins.dashboard")
+require("plugins.flutter")
 require("plugins.fzf")
 require("plugins.lsp")
 require("plugins.misc")

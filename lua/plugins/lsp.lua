@@ -6,8 +6,14 @@ function on_attach(client)
   end
 
   local opts = { noremap = true, silent = true }
-  buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
+  -- Jump to definition
   buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
+  -- Jump to definition
+  buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
+  -- Open code actions
+  buf_set_keymap("n", "ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+  -- Open code actions for the selected visual range
+  buf_set_keymap("x", "ca", "<Cmd>lua vim.lsp.buf.range_code_action()<CR>", opts)
 end
 
 -- yarn global add typescript-language-server
@@ -24,21 +30,25 @@ lspconf["rust_analyzer"].setup({ on_attach = on_attach })
 lspconf["bashls"].setup({ on_attach = on_attach })
 
 -- gem install solargraph && solargraph bundle
-lspconf["solargraph"].setup({})
+lspconf["solargraph"].setup({ on_attach = on_attach })
 
 -- yarn global add pyright
-lspconf["pyright"].setup({})
+lspconf["pyright"].setup({ on_attach = on_attach })
+
+-- built into dart as --lsp, so that needs to be installed
+lspconf["dartls"].setup({ on_attach = on_attach })
 
 -- yarn global add yaml-language-server
-lspconf["yamlls"].setup({})
+lspconf["yamlls"].setup({ on_attach = on_attach })
 
 -- yarn global add graphql-language-service-cli graphql
 lspconf["graphql"].setup({
+  on_attach = on_attach,
   filetypes = { "graphql", "gql" },
 })
 
 -- yarn global add vls
-lspconf["vuels"].setup({})
+lspconf["vuels"].setup({ on_attach = on_attach })
 
 -- see here: https://www.chrisatmachine.com/Neovim/28-neovim-lua-development/
 -- mkdir -p ~/.local/share && cd ~/.local/share
@@ -66,6 +76,7 @@ else
 end
 
 lspconf["sumneko_lua"].setup({
+  on_attach = on_attach,
   cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
   settings = {
     Lua = {
