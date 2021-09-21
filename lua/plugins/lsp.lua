@@ -1,6 +1,6 @@
 local lspconf = require("lspconfig")
 
-function on_attach(client)
+local function on_attach(client)
   local function buf_set_keymap(...)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
   end
@@ -13,7 +13,12 @@ function on_attach(client)
   -- Open code actions
   buf_set_keymap("n", "ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   -- Open code actions for the selected visual range
-  buf_set_keymap("x", "ca", "<Cmd>lua vim.lsp.buf.range_code_action()<CR>", opts)
+  buf_set_keymap(
+    "x",
+    "ca",
+    "<Cmd>lua vim.lsp.buf.range_code_action()<CR>",
+    opts
+  )
 end
 
 -- yarn global add typescript-language-server

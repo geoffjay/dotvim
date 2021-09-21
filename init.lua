@@ -46,6 +46,7 @@ require("paq")({
   "nvim-telescope/telescope.nvim",
   { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
   "nvim-telescope/telescope-media-files.nvim",
+  "windwp/nvim-autopairs",
 
   -- languages
   "vim-ruby/vim-ruby",
