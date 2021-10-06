@@ -47,6 +47,7 @@ require("paq")({
   { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
   "nvim-telescope/telescope-media-files.nvim",
   "windwp/nvim-autopairs",
+  "yamatsum/nvim-cursorline",
 
   -- languages
   "vim-ruby/vim-ruby",
@@ -94,7 +95,7 @@ require("plugins.tree")
 -- TODO: move into a new shortcuts.lua file
 map("n", ";", "<Cmd>Telescope buffers<CR>", { noremap = true })
 map("n", "<C-o>", "<Cmd>Telescope git_files<CR>", { noremap = true })
-map("n", "<C-p>", "<Cmd>Telescope live_grep<CR>", { noremap = true })
+map("n", "<C-p>", "<Cmd>Telescope lsp_definitions<CR>", { noremap = true })
 map("n", "<C-h>", "<Cmd>History<CR>", { noremap = true })
 map(
   "n",
