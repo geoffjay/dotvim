@@ -35,6 +35,7 @@ require("paq")({
   "junegunn/fzf",
   "junegunn/fzf.vim",
   "kyazdani42/nvim-tree.lua",
+  { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
   "ruanyl/vim-gh-line",
   "tpope/vim-commentary",
   "christoomey/vim-tmux-navigator",
@@ -89,6 +90,7 @@ require("plugins.misc")
 require("plugins.statusline")
 require("plugins.telescope").config()
 require("plugins.tree")
+require("plugins.treesitter")
 
 -- XXX
 
