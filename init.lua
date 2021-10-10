@@ -60,6 +60,7 @@ require("paq")({
   "mattn/vim-goimports",
   "dart-lang/dart-vim-plugin",
   "akinsho/flutter-tools.nvim",
+  "rust-lang/rust.vim",
 
   -- syntax
   "cespare/vim-toml",
