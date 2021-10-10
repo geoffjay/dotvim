@@ -61,6 +61,7 @@ require("paq")({
   "dart-lang/dart-vim-plugin",
   "akinsho/flutter-tools.nvim",
   "rust-lang/rust.vim",
+  "simrat39/rust-tools.nvim",
 
   -- syntax
   "cespare/vim-toml",
@@ -88,6 +89,7 @@ require("plugins.flutter")
 require("plugins.fzf")
 require("plugins.lsp")
 require("plugins.misc")
+require("plugins.rust")
 require("plugins.statusline")
 require("plugins.telescope").config()
 require("plugins.tree")
