@@ -49,6 +49,8 @@ require("paq")({
   "nvim-telescope/telescope-media-files.nvim",
   "windwp/nvim-autopairs",
   "yamatsum/nvim-cursorline",
+  "tpope/vim-dadbod",
+  "kristijanhusak/vim-dadbod-ui",
 
   -- languages
   "vim-ruby/vim-ruby",
@@ -93,6 +95,7 @@ require("plugins.blamer").config()
 require("plugins.bufferline").config()
 require("plugins.completion")
 require("plugins.dashboard")
+require("plugins.db")
 require("plugins.flutter")
 require("plugins.fzf")
 require("plugins.lsp")
