@@ -62,14 +62,22 @@ require("paq")({
   "akinsho/flutter-tools.nvim",
   "rust-lang/rust.vim",
   "simrat39/rust-tools.nvim",
-
-  -- syntax
   "cespare/vim-toml",
+  "leafgarland/typescript-vim",
+  "peitalin/vim-jsx-typescript",
+  "maxmellon/vim-jsx-pretty",
+  "styled-components/vim-styled-components",
+  "jparise/vim-graphql",
 
   -- code completion
   "hrsh7th/nvim-compe",
   "neovim/nvim-lspconfig",
   "onsails/lspkind-nvim",
+
+  -- code snippets
+  "dcampos/nvim-snippy",
+  "honza/vim-snippets",
+  "dcampos/compe-snippy",
 })
 
 -- vimscript configurations
@@ -90,6 +98,7 @@ require("plugins.fzf")
 require("plugins.lsp")
 require("plugins.misc")
 require("plugins.rust")
+require("plugins.snippy")
 require("plugins.statusline")
 require("plugins.telescope").config()
 require("plugins.tree")
@@ -113,8 +122,14 @@ map(
 -- TODO: move into new tmux/test.lua files
 vim.g.tmux_navigator_no_mappings = 1
 vim.g.tmux_navigator_save_on_switch = 2
-map("n", "<C-Left>", ":TmuxNavigateLeft<CR>", { noremap = true, silent = true })
-map("n", "<C-Down>", ":TmuxNavigateDown<CR>", { noremap = true, silent = true })
+map("n", "<C-Left>", ":TmuxNavigateLeft<CR>", {
+  noremap = true,
+  silent = true,
+})
+map("n", "<C-Down>", ":TmuxNavigateDown<CR>", {
+  noremap = true,
+  silent = true,
+})
 map("n", "<C-Up>", ":TmuxNavigateUp<CR>", { noremap = true, silent = true })
 map(
   "n",
