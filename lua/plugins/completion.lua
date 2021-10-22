@@ -32,6 +32,8 @@ require("compe").setup({
 
 map("i", "<Tab>", "v:lua.tab_complete()", { silent = true, expr = true })
 map("s", "<Tab>", "v:lua.tab_complete()", { silent = true, expr = true })
+map("i", "<S-Tab>", "v:lua.s_tab_complete()", { silent = true, expr = true })
+map("s", "<S-Tab>", "v:lua.s_tab_complete()", { silent = true, expr = true })
 map("i", "<CR>", 'compe#confirm("<CR>")', { silent = true, expr = true })
 
 local check_back_space = function()

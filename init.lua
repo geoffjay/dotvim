@@ -27,6 +27,7 @@ require("paq")({
   "hoob3rt/lualine.nvim",
   "akinsho/bufferline.nvim",
   "norcalli/nvim-colorizer.lua",
+  "luukvbaal/stabilize.nvim",
 
   -- utility
   "airblade/vim-gitgutter",
@@ -51,6 +52,7 @@ require("paq")({
   "yamatsum/nvim-cursorline",
   "tpope/vim-dadbod",
   "kristijanhusak/vim-dadbod-ui",
+  "puremourning/vimspector",
 
   -- languages
   "vim-ruby/vim-ruby",
@@ -71,10 +73,12 @@ require("paq")({
   "styled-components/vim-styled-components",
   "jparise/vim-graphql",
 
-  -- code completion
+  -- LSP / code completion / IDE
   "hrsh7th/nvim-compe",
   "neovim/nvim-lspconfig",
   "onsails/lspkind-nvim",
+  "ray-x/lsp_signature.nvim",
+  "simrat39/symbols-outline.nvim",
 
   -- code snippets
   "dcampos/nvim-snippy",
@@ -88,9 +92,11 @@ vim.call("init#editor#diffcolorscheme")
 vim.call("init#editor#defaults")
 vim.call("init#editor#columnwidth")
 vim.call("init#editor#indentation")
-vim.call("conf#editor#terminal")
+vim.call("init#editor#terminal")
 
--- lua configurations
+require("colors").config()
+
+-- plugin configurations
 require("plugins.blamer").config()
 require("plugins.bufferline").config()
 require("plugins.completion")
@@ -98,29 +104,17 @@ require("plugins.dashboard")
 require("plugins.db")
 require("plugins.flutter")
 require("plugins.fzf")
-require("plugins.lsp")
+require("plugins.lsp").config()
 require("plugins.misc")
 require("plugins.rust")
 require("plugins.snippy")
 require("plugins.statusline")
+require("plugins.symbols")
 require("plugins.telescope").config()
 require("plugins.tree")
 require("plugins.treesitter")
 
 -- XXX
-
--- TODO: move into a new shortcuts.lua file
-map("n", ";", "<Cmd>Telescope buffers<CR>", { noremap = true })
-map("n", "<C-o>", "<Cmd>Telescope git_files<CR>", { noremap = true })
-map("n", "<C-p>", "<Cmd>Telescope live_grep<CR>", { noremap = true })
-map("n", "<C-p>", "<Cmd>Telescope lsp_definitions<CR>", { noremap = true })
-map("n", "<C-h>", "<Cmd>History<CR>", { noremap = true })
-map(
-  "n",
-  "<C-f>",
-  "<Cmd>Telescope file_browser<CR>",
-  { noremap = true, silent = true }
-)
 
 -- TODO: move into new tmux/test.lua files
 vim.g.tmux_navigator_no_mappings = 1

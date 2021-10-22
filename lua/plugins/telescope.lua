@@ -1,3 +1,5 @@
+local map = vim.api.nvim_set_keymap
+
 local M = {}
 
 M.config = function()
@@ -87,6 +89,18 @@ M.config = function()
       telescope.load_extension(ext)
     end
   end)
+
+  map("n", ";", "<Cmd>Telescope buffers<CR>", { noremap = true })
+  map("n", "<C-o>", "<Cmd>Telescope git_files<CR>", { noremap = true })
+  map("n", "<C-g>", "<Cmd>Telescope live_grep<CR>", { noremap = true })
+  map("n", "<C-p>", "<Cmd>Telescope lsp_definitions<CR>", { noremap = true })
+  map("n", "<C-h>", "<Cmd>History<CR>", { noremap = true })
+  map(
+    "n",
+    "<C-f>",
+    "<Cmd>Telescope file_browser<CR>",
+    { noremap = true, silent = true }
+  )
 end
 
 return M

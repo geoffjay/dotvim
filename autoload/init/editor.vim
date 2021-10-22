@@ -118,3 +118,7 @@ function init#editor#columnwidth()
     au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>121v.\+', -1)
   endif
 endfunction
+
+function conf#editor#terminal()
+  :tnoremap <Esc> <C-\><C-n>
+endfunction
