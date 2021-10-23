@@ -119,6 +119,6 @@ function init#editor#columnwidth()
   endif
 endfunction
 
-function conf#editor#terminal()
+function init#editor#terminal()
   :tnoremap <Esc> <C-\><C-n>
 endfunction

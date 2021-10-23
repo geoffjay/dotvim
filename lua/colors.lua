@@ -44,9 +44,35 @@ end
 local c = M.colors
 local hi = M.hi
 
-M.config = function()
+local function highlight_plugins()
+  -- nvim-tree
+  hi("NvimTreeIndentMarker", c.grey3, "", "", "")
+  hi("NvimTreeFolderIcon", c.fg, "", "", "")
+  hi("NvimTreeRootFolder", c.teal, "", "bold", "")
+  hi("NvimTreeFolderName", c.blue, "", "", "")
+  hi("NvimTreeEmptyFolderName", c.grey_bright, "", "", "")
+  hi("NvimTreeImageFile", c.yellow, "", "", "")
+  hi("NvimTreeExecFile", c.green, "", "", "")
+  hi("NvimTreeSpecialFile", c.dark_blue, "", "underline", "")
+  hi("NvimTreeGitDirty", c.yellow, "", "", "")
+  hi("NvimTreeGitNew", c.green, "", "", "")
+  hi("NvimTreeGitDeleted", c.red, "", "", "")
+
   -- symbols-outline
   hi("FocusedSymbol", c.black, c.yellow, "bold", "")
+
+  -- telescope
+  hi("TelescopePromptBorder", c.cyan, "", "bold", "")
+  hi("TelescopeResultsBorder", c.blue, "", "bold", "")
+  hi("TelescopePreviewBorder", c.green, "", "bold", "")
+  hi("TelescopeSelection", c.fg, c.grey2, "", "")
+  hi("TelescopeMultiSelection", c.fg, c.grey2, "bold", "")
+  hi("TelescopeSelectionCaret", c.red, c.grey2, "bold", "")
+  hi("TelescopeMatching", c.purple, "", "bold", "")
+end
+
+M.config = function()
+  highlight_plugins()
 end
 
 return M

@@ -81,9 +81,15 @@ require("paq")({
   "simrat39/symbols-outline.nvim",
 
   -- code snippets
-  "dcampos/nvim-snippy",
   "honza/vim-snippets",
+  "dcampos/nvim-snippy",
   "dcampos/compe-snippy",
+  "hrsh7th/vim-vsnip",
+  "cstrap/python-snippets",
+  "ylcnfrht/vscode-python-snippet-pack",
+  "xabikos/vscode-javascript",
+  "golang/vscode-go",
+  "rust-lang/vscode-rust",
 })
 
 -- vimscript configurations
@@ -146,8 +152,8 @@ map("n", "<C-t>", ":w<CR> :TestFile<CR>", { noremap = true })
 map("n", "<C-l>", ":w<CR> :TestNearest<CR>", { noremap = true })
 
 -- commentary
-map("n", "\\cc", ":Commentary<CR>", { noremap = true })
-map("n", "\\cs", ":Commentary<CR>", { noremap = true })
+map("v", ",cc", ":Commentary<CR>", { noremap = true })
+map("v", ",cs", ":Commentary<CR>", { noremap = true })
 
 -- XXX
 
