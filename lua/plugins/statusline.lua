@@ -13,3 +13,5 @@ require("lualine").setup({
     lualine_z = { "location" },
   },
 })
+
+vim.api.nvim_command('set noshowmode')

@@ -41,8 +41,14 @@ M.hi = function(group, guifg, guibg, attr, guisp)
   vim.api.nvim_command(hl)
 end
 
+M.italicize = function(group)
+  local hl = "hi " .. group .. " gui=italic cterm=italic"
+  vim.api.nvim_command(hl)
+end
+
 local c = M.colors
 local hi = M.hi
+local italicize = M.italicize
 
 local function highlight_plugins()
   -- nvim-tree
@@ -71,8 +77,22 @@ local function highlight_plugins()
   hi("TelescopeMatching", c.purple, "", "bold", "")
 end
 
+-- these are less color and more display
+local function italicize_syntax()
+  italicize("Comment")
+  italicize("Conditional")
+  italicize("Constant")
+  italicize("Function")
+  italicize("Keyword")
+  italicize("SpecialComment")
+  italicize("Todo")
+
+  italicize("luaCustomFunction")
+end
+
 M.config = function()
   highlight_plugins()
+  italicize_syntax()
 end
 
 return M
