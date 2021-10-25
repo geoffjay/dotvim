@@ -6,6 +6,7 @@ vim.g.symbols_outline = {
   auto_preview = false, -- experimental
   position = "right",
   preview_background_highlight = "Comment",
+  width = 25,
   keymaps = {
     close = "<Esc>",
     goto_location = "<Cr>",
