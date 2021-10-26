@@ -22,12 +22,12 @@ require("paq")({
   { "savq/paq-nvim", opt = true },
 
   -- appearance
-  "arcticicestudio/nord-vim",
-  "kyazdani42/nvim-web-devicons",
-  "hoob3rt/lualine.nvim",
   "akinsho/bufferline.nvim",
-  "norcalli/nvim-colorizer.lua",
+  "arcticicestudio/nord-vim",
+  "hoob3rt/lualine.nvim",
+  "kyazdani42/nvim-web-devicons",
   "luukvbaal/stabilize.nvim",
+  "norcalli/nvim-colorizer.lua",
 
   -- utility
   "airblade/vim-gitgutter",
@@ -37,6 +37,7 @@ require("paq")({
   "junegunn/fzf.vim",
   "kyazdani42/nvim-tree.lua",
   { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
+  "nvim-treesitter/nvim-treesitter-refactor",
   "ruanyl/vim-gh-line",
   "tpope/vim-commentary",
   "christoomey/vim-tmux-navigator",
@@ -55,23 +56,23 @@ require("paq")({
   "puremourning/vimspector",
 
   -- languages
-  "vim-ruby/vim-ruby",
+  "akinsho/flutter-tools.nvim",
+  "cespare/vim-toml",
+  "dart-lang/dart-vim-plugin",
+  "fatih/vim-go",
+  "jparise/vim-graphql",
+  "leafgarland/typescript-vim",
+  "mattn/vim-goimports",
+  "maxmellon/vim-jsx-pretty",
+  "peitalin/vim-jsx-typescript",
+  "rust-lang/rust.vim",
+  "simrat39/rust-tools.nvim",
+  "styled-components/vim-styled-components",
   "tpope/vim-bundler",
   "tpope/vim-rails",
   "tpope/vim-rake",
   "tpope/vim-rbenv",
-  "fatih/vim-go",
-  "mattn/vim-goimports",
-  "dart-lang/dart-vim-plugin",
-  "akinsho/flutter-tools.nvim",
-  "rust-lang/rust.vim",
-  "simrat39/rust-tools.nvim",
-  "cespare/vim-toml",
-  "leafgarland/typescript-vim",
-  "peitalin/vim-jsx-typescript",
-  "maxmellon/vim-jsx-pretty",
-  "styled-components/vim-styled-components",
-  "jparise/vim-graphql",
+  "vim-ruby/vim-ruby",
 
   -- LSP / code completion / IDE
   "hrsh7th/nvim-compe",
@@ -81,15 +82,15 @@ require("paq")({
   "simrat39/symbols-outline.nvim",
 
   -- code snippets
-  "honza/vim-snippets",
-  "dcampos/nvim-snippy",
-  "dcampos/compe-snippy",
-  "hrsh7th/vim-vsnip",
   "cstrap/python-snippets",
-  "ylcnfrht/vscode-python-snippet-pack",
-  "xabikos/vscode-javascript",
+  "dcampos/compe-snippy",
+  "dcampos/nvim-snippy",
   "golang/vscode-go",
+  "honza/vim-snippets",
+  "hrsh7th/vim-vsnip",
   "rust-lang/vscode-rust",
+  "xabikos/vscode-javascript",
+  "ylcnfrht/vscode-python-snippet-pack",
 })
 
 -- vimscript configurations
