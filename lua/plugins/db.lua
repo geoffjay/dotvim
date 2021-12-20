@@ -21,4 +21,5 @@ map("n", "<leader>dl", "<Cmd>DBUIToggle<CR>", {
   silent = true,
 })
 
+vim.g.db_ui_use_nerd_fonts = true
 vim.g.db_ui_save_location = "~/.config/db_ui"

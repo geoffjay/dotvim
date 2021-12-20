@@ -157,9 +157,9 @@ M.config = function()
     },
   })
 
-  require('lspkind').init({
+  require("lspkind").init({
     with_text = true,
-    preset = 'codicons',
+    preset = "codicons",
     symbol_map = {
       Text = "",
       Method = "",
@@ -185,7 +185,7 @@ M.config = function()
       Struct = "פּ",
       Event = "",
       Operator = "",
-      TypeParameter = ""
+      TypeParameter = "",
     },
   })
 end

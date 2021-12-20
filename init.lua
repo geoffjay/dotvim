@@ -54,25 +54,31 @@ require("paq")({
   "tpope/vim-dadbod",
   "kristijanhusak/vim-dadbod-ui",
   "puremourning/vimspector",
+  "liuchengxu/vim-which-key",
+  "AckslD/nvim-whichkey-setup.lua",
 
   -- languages
   "akinsho/flutter-tools.nvim",
-  "cespare/vim-toml",
   "dart-lang/dart-vim-plugin",
   "fatih/vim-go",
-  "jparise/vim-graphql",
   "leafgarland/typescript-vim",
   "mattn/vim-goimports",
   "maxmellon/vim-jsx-pretty",
   "peitalin/vim-jsx-typescript",
   "rust-lang/rust.vim",
   "simrat39/rust-tools.nvim",
-  "styled-components/vim-styled-components",
   "tpope/vim-bundler",
   "tpope/vim-rails",
   "tpope/vim-rake",
   "tpope/vim-rbenv",
   "vim-ruby/vim-ruby",
+
+  -- syntax
+  "cespare/vim-toml",
+  "fladson/vim-kitty",
+  "jparise/vim-graphql",
+  "luisjure/csound-vim",
+  "styled-components/vim-styled-components",
 
   -- LSP / code completion / IDE
   "hrsh7th/nvim-compe",
@@ -120,6 +126,7 @@ require("plugins.symbols")
 require("plugins.telescope").config()
 require("plugins.tree")
 require("plugins.treesitter")
+require("plugins.whichkey")
 
 -- XXX
 
@@ -155,6 +162,10 @@ map("n", "<C-l>", ":w<CR> :TestNearest<CR>", { noremap = true })
 -- commentary
 map("v", ",cc", ":Commentary<CR>", { noremap = true })
 map("v", ",cs", ":Commentary<CR>", { noremap = true })
+
+-- helpers
+map("n", ",a", "<esc>ggVG<CR>", { noremap = true })
+map("v", ",s", "!sort<CR>", { noremap = true })
 
 -- XXX
 

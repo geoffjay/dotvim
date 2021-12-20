@@ -14,4 +14,4 @@ require("lualine").setup({
   },
 })
 
-vim.api.nvim_command('set noshowmode')
+vim.api.nvim_command("set noshowmode")

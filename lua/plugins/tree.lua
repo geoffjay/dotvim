@@ -1,4 +1,5 @@
 local g = vim.g
+local map = vim.api.nvim_set_keymap
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 
 require("nvim-tree").setup({
@@ -81,3 +82,6 @@ g.nvim_tree_icons = {
 }
 
 vim.cmd("source ~/.config/nvim/viml/tree.vim")
+
+map("n", "\\e", ":call TreeToggle()<CR>", { noremap = true })
+map("n", "\\r", ":call TreeRefresh()<CR>", { noremap = true })

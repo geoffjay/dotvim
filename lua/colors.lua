@@ -1,5 +1,7 @@
 local M = {}
 
+-- check colors with ":so $VIMRUNTIME/syntax/hitest.vim"
+
 -- nord
 M.colors = {
   black = "#2E3440",
@@ -77,6 +79,30 @@ local function highlight_plugins()
   hi("TelescopeMatching", c.purple, "", "bold", "")
 end
 
+-- misc highlight overrides
+local function highlight_misc()
+  hi("RedrawDebugNormal", c.grey1, c.white2, "", "")
+  hi("RedrawDebugClear", c.grey1, c.yellow, "", "")
+  hi("RedrawDebugComposed", c.grey1, c.green, "", "")
+  hi("RedrawDebugRecompose", c.grey1, c.red, "", "")
+  hi("IndentGuidesEven", c.grey1, c.green, "", "")
+  hi("IndentGuidesOdd", c.grey1, c.red, "", "")
+end
+
+-- syntax highlighting overrides
+local function highlight_syntax()
+  hi("Boolean", c.orange, "", "", "")
+  hi("Comment", c.grey_bright, "", "", "")
+  hi("Decorator", c.orange, "", "", "")
+
+  -- GraphQL overrides
+  -- FIXME: this should be in an autocmd? doesn't work this way
+  if vim.bo.filetype == "graphql" then
+    hi("Comment", c.orange, "", "", "")
+    hi("Keyword", c.orange, "", "", "")
+  end
+end
+
 -- these are less color and more display
 local function italicize_syntax()
   italicize("Comment")
@@ -91,7 +117,9 @@ local function italicize_syntax()
 end
 
 M.config = function()
+  highlight_misc()
   highlight_plugins()
+  highlight_syntax()
   italicize_syntax()
 end
 
