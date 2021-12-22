@@ -8,12 +8,12 @@ autoload/conf/redmine.vim
 bundle/
 view/
 
+startup.log
 tags
 
 !undodir/.keep
 undodir/*
 
-plugin/
-startup.log
 lua/rc/*
-# rc is ignored since private configs don't update on force/rebase pull
+plugin/
+spell/

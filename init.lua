@@ -128,9 +128,9 @@ require("plugins.tree")
 require("plugins.treesitter")
 require("plugins.whichkey")
 
--- XXX
+-- TODO: move these sections into new lua files
 
--- TODO: move into new tmux/test.lua files
+-- tmux
 vim.g.tmux_navigator_no_mappings = 1
 vim.g.tmux_navigator_save_on_switch = 2
 map("n", "<C-Left>", ":TmuxNavigateLeft<CR>", {
@@ -152,6 +152,21 @@ map(
 -- disable visual-multi-mappings that bind to ctrl up/down which are being used with tmux
 vim.g.VM_default_mappings = 0
 
+-- autocmds
+vim.api.nvim_command([[
+augroup SpellCheck
+autocmd FileType markdown setlocal spell
+autocmd FileType markdown setlocal complete+=kspell
+autocmd FileType gitcommit setlocal spell
+autocmd FileType gitcommit setlocal complete+=kspell
+augroup END
+]])
+vim.api.nvim_command([[
+augroup DisableFolding
+autocmd FileType dbout setlocal nofoldenable
+augroup END
+]])
+
 -- vim-test / vimux
 vim.g["test#strategy"] = "vimux" -- make test commands execute using vimux
 vim.g["VimuxUseNearest"] = 0 -- don't use an exisiting pane
@@ -166,8 +181,6 @@ map("v", ",cs", ":Commentary<CR>", { noremap = true })
 -- helpers
 map("n", ",a", "<esc>ggVG<CR>", { noremap = true })
 map("v", ",s", "!sort<CR>", { noremap = true })
-
--- XXX
 
 -- shortcuts
 vim.call("init#shortcuts#setup")

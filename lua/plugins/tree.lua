@@ -17,6 +17,10 @@ require("nvim-tree").setup({
   -- remove all default bindings.
   disable_default_keybindings = true,
 
+  filters = {
+    custom = { ".git", "node_modules", ".cache", ".DS_Store" },
+  },
+
   -- add some defaults back in
   bindings = {
     { key = { "<CR>" }, cb = tree_cb("edit") },
@@ -35,7 +39,6 @@ require("nvim-tree").setup({
   },
 })
 
-g.nvim_tree_ignore = { ".git", "node_modules", ".cache", ".DS_Store" }
 g.nvim_tree_auto_ignore_ft = { "dashboard" }
 g.nvim_tree_width = 40
 g.nvim_tree_indent_markers = 1
