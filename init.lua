@@ -26,6 +26,7 @@ require("paq")({
   "arcticicestudio/nord-vim",
   "hoob3rt/lualine.nvim",
   "kyazdani42/nvim-web-devicons",
+  "lukas-reineke/indent-blankline.nvim",
   "luukvbaal/stabilize.nvim",
   "norcalli/nvim-colorizer.lua",
 
@@ -117,6 +118,7 @@ require("plugins.dashboard")
 require("plugins.db")
 require("plugins.flutter")
 require("plugins.fzf")
+require("plugins.indent")
 require("plugins.lsp").config()
 require("plugins.misc")
 require("plugins.rust")
@@ -164,6 +166,11 @@ augroup END
 vim.api.nvim_command([[
 augroup DisableFolding
 autocmd FileType dbout setlocal nofoldenable
+autocmd FileType dbout setlocal wrap
+autocmd FileType dbout setlocal nolist
+autocmd FileType dbout setlocal linebreak
+autocmd FileType dbout setlocal breakindent
+autocmd FileType dbout setlocal showbreak=ͱ
 augroup END
 ]])
 
