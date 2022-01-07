@@ -60,6 +60,7 @@ require("paq")({
 
   -- languages
   "akinsho/flutter-tools.nvim",
+  "arrufat/vala.vim",
   "dart-lang/dart-vim-plugin",
   "fatih/vim-go",
   "leafgarland/typescript-vim",
