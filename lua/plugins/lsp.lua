@@ -14,6 +14,7 @@ local lspconf = require("lspconfig")
 -- yarn global add yaml-language-server
 -- yarn global add vls
 -- yarn global add graphql-language-service-cli graphql
+-- brew install ccls || pacman -S ccls
 --
 -- Lua setup is more involved:
 --
@@ -97,20 +98,28 @@ M.config = function()
 
   -- LSPs
   local servers = {
-    "tsserver",
-    "gopls",
-    "rust_analyzer",
     "bashls",
-    "solargraph",
-    "pyright",
+    "ccls",
     "dartls",
-    "yamlls",
+    "gopls",
+    "pyright",
+    "rust_analyzer",
+    "solargraph",
+    "tsserver",
     "vuels",
+    "yamlls",
   }
 
   for _, lsp in ipairs(servers) do
     lspconf[lsp].setup({ capabilities = capabilities, on_attach = on_attach })
   end
+
+  lspconf["ccls"].setup({
+    init_options = {
+      compilationDatabaseDirectory = "_build",
+    },
+    on_attach = on_attach,
+  })
 
   lspconf["graphql"].setup({
     on_attach = on_attach,
