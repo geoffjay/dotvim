@@ -70,13 +70,25 @@ local function highlight_plugins()
   hi("FocusedSymbol", c.black, c.yellow, "bold", "")
 
   -- telescope
-  hi("TelescopePromptBorder", c.cyan, "", "bold", "")
-  hi("TelescopeResultsBorder", c.blue, "", "bold", "")
-  hi("TelescopePreviewBorder", c.green, "", "bold", "")
-  hi("TelescopeSelection", c.fg, c.grey2, "", "")
-  hi("TelescopeMultiSelection", c.fg, c.grey2, "bold", "")
-  hi("TelescopeSelectionCaret", c.red, c.grey2, "bold", "")
+  hi("TelescopeNormal", c.fg, c.grey1, "", "")
+  hi("TelescopeBorder", c.grey_bright, c.grey3, "bold", "")
+
+  hi("TelescopePromptBorder", c.grey3, c.grey3, "bold", "")
+  hi("TelescopePromptNormal", c.grey1, c.grey3, "bold", "")
+  hi("TelescopePromptPrefix", c.red, c.grey3, "bold", "")
+  hi("TelescopePromptCounter", c.red, c.grey3, "bold", "")
+  hi("TelescopePromptTitle", c.blue, c.grey3, "bold", "")
+
+  hi("TelescopeResultsBorder", c.grey1, c.grey1, "bold", "")
+  hi("TelescopeResultsTitle", c.green, c.grey1, "bold", "")
+
+  hi("TelescopePreviewBorder", c.grey1, c.grey1, "bold", "")
+  hi("TelescopePreviewTitle", c.purple, c.grey1, "bold", "")
+
   hi("TelescopeMatching", c.purple, "", "bold", "")
+  hi("TelescopeMultiSelection", c.fg, c.grey2, "bold", "")
+  hi("TelescopeSelection", c.fg, c.grey2, "", "")
+  hi("TelescopeSelectionCaret", c.red, c.grey2, "bold", "")
 end
 
 -- misc highlight overrides

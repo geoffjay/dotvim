@@ -4,6 +4,7 @@ local M = {}
 
 M.config = function()
   local present, telescope = pcall(require, "telescope")
+
   if not present then
     return
   end
@@ -90,16 +91,23 @@ M.config = function()
     end
   end)
 
-  map("n", ";", "<Cmd>Telescope buffers<CR>", { noremap = true })
-  map("n", "<C-o>", "<Cmd>Telescope git_files<CR>", { noremap = true })
-  map("n", "<C-g>", "<Cmd>Telescope live_grep<CR>", { noremap = true })
-  map("n", "<C-p>", "<Cmd>Telescope lsp_definitions<CR>", { noremap = true })
-  map("n", "<C-h>", "<Cmd>History<CR>", { noremap = true })
+  local default_opts = { noremap = true, silent = true }
+  map("n", ";", "<Cmd>Telescope buffers<CR>", default_opts)
+  map("n", "<C-o>", "<Cmd>Telescope git_files<CR>", default_opts)
+  map("n", "<C-g>", "<Cmd>Telescope live_grep<CR>", default_opts)
+  map("n", "<C-p>", "<Cmd>Telescope lsp_definitions<CR>", default_opts)
+  map("n", "<C-h>", "<Cmd>History<CR>", default_opts)
   map(
     "n",
     "<C-f>",
     "<Cmd>Telescope file_browser<CR>",
-    { noremap = true, silent = true }
+    default_opts
+  )
+  map(
+    "v",
+    "<C-f>",
+    "y<ESC>:Telescope live_grep default_text=<c-r>0<CR>",
+    default_opts
   )
 end
 
