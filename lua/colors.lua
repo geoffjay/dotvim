@@ -74,7 +74,7 @@ local function highlight_plugins()
   hi("TelescopeBorder", c.grey_bright, c.grey3, "bold", "")
 
   hi("TelescopePromptBorder", c.grey3, c.grey3, "bold", "")
-  hi("TelescopePromptNormal", c.grey1, c.grey3, "bold", "")
+  hi("TelescopePromptNormal", c.red, c.grey3, "", "")
   hi("TelescopePromptPrefix", c.red, c.grey3, "bold", "")
   hi("TelescopePromptCounter", c.red, c.grey3, "bold", "")
   hi("TelescopePromptTitle", c.blue, c.grey3, "bold", "")
