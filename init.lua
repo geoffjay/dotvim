@@ -81,6 +81,7 @@ require("paq")({
   "jparise/vim-graphql",
   "luisjure/csound-vim",
   "styled-components/vim-styled-components",
+  "chrisbra/vim-zsh",
 
   -- LSP / code completion / IDE
   "hrsh7th/nvim-compe",

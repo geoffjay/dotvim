@@ -167,7 +167,7 @@ M.config = function()
   })
 
   require("lspkind").init({
-    with_text = true,
+    mode = "symbol_text",
     preset = "codicons",
     symbol_map = {
       Text = "",
